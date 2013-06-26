@@ -18,6 +18,9 @@ class Scanner(object):
                 offset += len(buf) - size*2
                 buf = buf[-size*2:]
             for sig in self._signatures:
-                found = sig.find(buf)
-                if found != -1 and found < size:
+                found = -1
+                while True:
+                    found = sig.find(buf, found+1)
+                    if found == -1 or found >= size:
+                        break
                     yield (found+offset, sig)

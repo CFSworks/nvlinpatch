@@ -11,8 +11,8 @@ class Patch(object):
     def match(self, input):
         return self._from_sig.match(input)
 
-    def find(self, input):
-        return self._from_sig.find(input)
+    def find(self, input, start=0):
+        return self._from_sig.find(input, start)
 
     def patch(self, input):
         assert self.match(input)

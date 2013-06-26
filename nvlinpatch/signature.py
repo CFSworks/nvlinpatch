@@ -16,9 +16,9 @@ class Signature(object):
                 return False
         return True
 
-    def find(self, input):
-        if self._mask == '\xff'*self._size: return input.find(self._data)
-        for offset in range(0, len(input)-self._size+1):
+    def find(self, input, start=0):
+        if self._mask == '\xff'*self._size: return input.find(self._data, start)
+        for offset in range(start, len(input)-self._size+1):
             if self.match(input[offset:offset+self._size]):
                 return offset
         return -1
