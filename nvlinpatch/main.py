@@ -21,6 +21,11 @@ uncap_pclk_fermi_64 = Patch('uncap_pclk_fermi_64',
 # VERSIONS
 versions = []
 
+v = Version('334.16_64', sig_raw('NVIDIA UNIX x86_64 Kernel Module  334.16'))
+v.add_patch(uncap_pclk_dvi_64)
+v.add_patch(uncap_pclk_fermi_64)
+versions.append(v)
+
 v = Version('331.38_64', sig_raw('NVIDIA UNIX x86_64 Kernel Module  331.38'))
 v.add_patch(uncap_pclk_dvi_64)
 v.add_patch(uncap_pclk_dp_64)
